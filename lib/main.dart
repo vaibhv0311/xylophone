@@ -1,11 +1,13 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
+import 'package:audioplayer/audioplayer.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp() : super();
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,12 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: SafeArea(
           child: Center(
-            child: TextButton(onPressed: () {}, child: Text('Press me')),
+            child: TextButton(
+                onPressed: () {
+                  AudioPlayer audioPlayer = AudioPlayer();
+                  audioPlayer.play('/assets/note2.wav');
+                },
+                child: Text('Press me')),
           ),
         ),
       ),
